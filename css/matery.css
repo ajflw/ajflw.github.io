@@ -240,12 +240,13 @@ mark {
     margin-bottom: 0;
 }
 
+/* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色. */
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+     background-image: linear-gradient(to right, #336699 0%, #f1fafa 100%);
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    /* color: #0f9d58 !important; */
 }
 
 .white-color {
@@ -257,7 +258,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #141414 0%, #161616 100%);
     opacity: 0.8;
 }
 
@@ -595,7 +596,7 @@ header .go-back i {
 
 @-webkit-keyframes rainbow {
 
-    0%,
+    /* 0%,
     100% {
         background: rgba(156, 39, 176, 0.75);
         background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
@@ -635,7 +636,7 @@ header .go-back i {
         background: rgba(233, 30, 99, 0.75);
         background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%); */
     }
 }
 
