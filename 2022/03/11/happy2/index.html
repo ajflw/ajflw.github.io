@@ -27,6 +27,17 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
 
     <title>掌控安全靶场第二章 | 达吉尔</title>
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -476,18 +487,33 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-03-12
+                </div>
                 
 
                 
 
                 
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
 
         
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -516,7 +542,7 @@
 <p>推荐url编码在线网站<a target="_blank" rel="noopener" href="https://tool.chinaz.com/tools/urlencode.aspx">UrlEncode编码&#x2F;UrlDecode解码 - 站长工具 (chinaz.com)</a> 经过url编码 的and 1&#x3D;1正常通过</p>
 <img title="null" src="/2022/03/11/happy2/8.png" alt="null">
 
-<h2 id="然后我们正常开始注入"><a href="#然后我们正常开始注入" class="headerlink" title="然后我们正常开始注入"></a>然后我们正常开始注入</h2><p>因为我们开头知道order by 10知道有10列注意这是url编码后的</p>
+<h2 id="然后我们正常开始注入"><a href="#然后我们正常开始注入" class="headerlink" title="然后我们正常开始注入"></a>然后我们正常开始注入</h2><p>因为我们开头知道order by 10知道有10列注意需要url编码才不会报错</p>
 <pre><code>  union select 1,2,3,4,5,6,7,8,9,10 from admin
 </code></pre>
 <img title="null" src="/2022/03/11/happy2/9.png" alt="null">
@@ -1246,6 +1272,16 @@ $(function () {
     
 
     <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
     <!-- Baidu Push -->
 
