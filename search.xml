@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>WiFi渗透工具Flxion</title>
+      <link href="/2022/03/15/WiFi/"/>
+      <url>/2022/03/15/WiFi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="WiFi钓鱼神器flxion"><a href="#WiFi钓鱼神器flxion" class="headerlink" title="WiFi钓鱼神器flxion"></a>WiFi钓鱼神器flxion</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>第一种种在终端输入git clone <a href="https://github.com/FluxionNetwork/fluxion.git%EF%BC%88%E5%AE%98%E6%96%B9">https://github.com/FluxionNetwork/fluxion.git（官方</a>)<br>第二种：用码云（国内的“github”）。 我使用了第二种方法： 在终端输入<br>git clone <a href="https://gitee.com/youzicha123/fluxion.git">https://gitee.com/youzicha123/fluxion.git</a> 。随便用那个安装</p><p>等待克隆完成，进入Fluxion文件夹输入命令<code>sudo ./fluxion.sh</code>-i 进行安装可能回出现下面情况</p><img title="null" src="/2022/03/15/WiFi/1.png" alt="null" data-align="inline"><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>然后在kali里面找到文件系统etc&#x2F;apt&#x2F;sources.list</p><img title="null" src="/2022/03/15/WiFi/2.png" alt="null" data-align="inline"><p>这个文件夹添加</p><p>deb <a href="http://mirrors.ustc.edu.cn/debian/">http://mirrors.ustc.edu.cn/debian/</a> buster main contrib non-free</p><p>deb <a href="http://mirrors.ustc.edu.cn/debian/">http://mirrors.ustc.edu.cn/debian/</a> buster-updates main contrib non-free</p><p>deb <a href="http://mirrors.ustc.edu.cn/debian/">http://mirrors.ustc.edu.cn/debian/</a> buster-backports main contrib non-free</p><p>deb <a href="http://mirrors.ustc.edu.cn/debian-security">http://mirrors.ustc.edu.cn/debian-security</a> buster&#x2F;updates main contrib non-free </p><p>进去然后apt update更新即可解决在进入fluxion 使用 sudo .&#x2F;fluxion - i 就可以使用了。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>第一步现在语言 17</p><img title="null" src="/2022/03/15/WiFi/3.png" alt="null" data-align="inline"><p>然后我们需要外置网卡推荐3070网卡系列如果还要5GWiFi需要在买一个8812au网卡辅助。</p><h4 id="我们插上外置选着2"><a href="#我们插上外置选着2" class="headerlink" title="我们插上外置选着2"></a>我们插上外置选着2</h4><img title="null" src="/2022/03/15/WiFi/4.png" alt="null" data-align="inline"><h4 id="然后选择3"><a href="#然后选择3" class="headerlink" title="然后选择3"></a>然后选择3</h4><img title="null" src="/2022/03/15/WiFi/5.png" alt="null" data-align="inline"><h4 id="扫描到你要破解的WiFi就按ctrl-c结束在选择要破解的WiFi"><a href="#扫描到你要破解的WiFi就按ctrl-c结束在选择要破解的WiFi" class="headerlink" title="扫描到你要破解的WiFi就按ctrl+c结束在选择要破解的WiFi"></a>扫描到你要破解的WiFi就按ctrl+c结束在选择要破解的WiFi</h4><img title="null" src="/2022/03/15/WiFi/6.png" alt="null" data-align="inline"><h4 id="在选择跳过"><a href="#在选择跳过" class="headerlink" title="在选择跳过"></a>在选择跳过</h4><img title="null" src="/2022/03/15/WiFi/7.png" alt="null" data-align="inline"><h4 id="然后在选择2和3随便一个不用选择1。"><a href="#然后在选择2和3随便一个不用选择1。" class="headerlink" title="然后在选择2和3随便一个不用选择1。"></a>然后在选择2和3随便一个不用选择1。</h4><img title="null" src="/2022/03/15/WiFi/8.png" alt="null" data-align="inline"><h4 id="在选择2"><a href="#在选择2" class="headerlink" title="在选择2"></a>在选择2</h4><img title="null" src="/2022/03/15/WiFi/9.png" alt="null" data-align="inline"><h4 id="推荐选择60秒如果60秒还抓不到包建议用90秒的"><a href="#推荐选择60秒如果60秒还抓不到包建议用90秒的" class="headerlink" title="推荐选择60秒如果60秒还抓不到包建议用90秒的"></a>推荐选择60秒如果60秒还抓不到包建议用90秒的</h4><img title="null" src="/2022/03/15/WiFi/10.png" alt="null" data-align="inline"><h4 id="然后选择2"><a href="#然后选择2" class="headerlink" title="然后选择2"></a>然后选择2</h4><img title="null" src="/2022/03/15/WiFi/11.png" alt="null" data-align="inline"><h4 id="然后坐等抓包成功"><a href="#然后坐等抓包成功" class="headerlink" title="然后坐等抓包成功"></a>然后坐等抓包成功</h4><img title="null" src="/2022/03/15/WiFi/12.png" alt="null" data-align="inline"><h4 id="然后选择1在选择1"><a href="#然后选择1在选择1" class="headerlink" title="然后选择1在选择1"></a>然后选择1在选择1</h4><img title="null" src="/2022/03/15/WiFi/13.png" alt="null" data-align="inline"><h4 id="在选择y"><a href="#在选择y" class="headerlink" title="在选择y"></a>在选择y</h4><img title="null" src="/2022/03/15/WiFi/14.png" alt="null" data-align="inline"><h4 id="在选择2在选择2"><a href="#在选择2在选择2" class="headerlink" title="在选择2在选择2"></a>在选择2在选择2</h4><img title="null" src="/2022/03/15/WiFi/15.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/16.png" alt="null" data-align="inline"><h4 id="然后选择1-2-3-都可以-然后在选择1在选择1在1"><a href="#然后选择1-2-3-都可以-然后在选择1在选择1在1" class="headerlink" title="然后选择1 2 3 都可以 然后在选择1在选择1在1"></a>然后选择1 2 3 都可以 然后在选择1在选择1在1</h4><img title="null" src="/2022/03/15/WiFi/17.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/18.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/19.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/20.png" alt="null" data-align="inline"><h4 id="然后在选择2在选择1在选择1"><a href="#然后在选择2在选择1在选择1" class="headerlink" title="然后在选择2在选择1在选择1"></a>然后在选择2在选择1在选择1</h4><img title="null" src="/2022/03/15/WiFi/21.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/22.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/23.png" alt="null" data-align="inline"><h4 id="然后选择钓鱼页面坐等钓鱼"><a href="#然后选择钓鱼页面坐等钓鱼" class="headerlink" title="然后选择钓鱼页面坐等钓鱼"></a>然后选择钓鱼页面坐等钓鱼</h4><img title="null" src="/2022/03/15/WiFi/24.png" alt="null" data-align="inline"><img title="null" src="/2022/03/15/WiFi/25.png" alt="null" data-align="inline"><p>要更换钓鱼页面fluxion&#x2F;attacks&#x2F;Captive Portal&#x2F;sites&#x2F; 在这个文件夹。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> WiFi </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WiFi破解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>掌控安全靶场第二章</title>
       <link href="/2022/03/11/happy2/"/>
       <url>/2022/03/11/happy2/</url>
